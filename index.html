@@ -6,7 +6,7 @@
     <link rel="icon" type="image/png" href="images/favicon.png" />
     <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Source+Sans+Pro" rel="stylesheet">
     <link rel="stylesheet" href="css/estilos.css">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
     <i class="icon-menu burger-button" id="burger-menu"></i>
@@ -37,7 +37,7 @@
         </h1>
         <img class="hero-image" src="images/hero.jpg" width="500" height="300" alt="imagen principal del sitio"> 
       </div>
-    </section> -->
+    </section>
     <section id="portafolio" class="portfolio">
       <div class="container">
         <h2>Portafolio (Proyectos Destacados)</h2>
@@ -101,7 +101,7 @@
           <figure class="event-imageContainer">
             <video class="html-video" src="images/f8.mp4" width="1280" height="720" controls ></video>
 
-            <!-- <img class="event-image" src="images/platzi-conf.jpg" width="500" /> -->
+            <img class="event-image" src="images/platzi-conf.jpg" width="500" />
           </figure>
           <div class="event-detail">
             <h3 class="event-title">PlatziConf México 2018</h3>
@@ -149,14 +149,26 @@
       </div>
     </footer>
     <script>
-      console.log('Hola mundo');
-
+      // console.log('Hola mundo');
+      const ipad = window.matchMedia('screen and (max-width: 767px)')
       const menu = document.querySelector('.menu');
-      console.log(menu)
+      // console.log(menu)
       const burgerButton = document.querySelector('#burger-menu')
-      console.log(burgerButton);
+      // console.log(burgerButton);
 
-      burgerButton.addEventListener('click', hideShow)
+
+      ipad.addlistener(validation)
+
+      function validation(event) {
+        if (event.matches) {
+            burgerButton.addEventListener('click', hideShow)
+
+        } else {
+          burgerButton.removeEventListener('click', hideShow)
+
+        }
+      }
+      validation(ipad)
 
       function hideShow() {
         if (menu/classList.contains('is-active')) {
